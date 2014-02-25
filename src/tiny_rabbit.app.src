@@ -1,0 +1,12 @@
+{application, tiny_rabbit,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { tiny_rabbit_app, []}},
+  {env, []}
+ ]}.
