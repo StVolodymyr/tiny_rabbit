@@ -49,7 +49,8 @@ start_link(Queue, Number, ConnectionTracker, Handler, HandlerOptions) ->
 %%                     {stop, Reason}
 %% @end
 %%--------------------------------------------------------------------
-init([Queue, Number, ConnectionTracker, Handler, HandlerOptions]) ->
+init([QueueStr, Number, ConnectionTracker, Handler, HandlerOptions]) ->
+    Queue = list_to_binary(QueueStr),
     {ok, HandlerState} = Handler:init(HandlerOptions),
     lager:debug("Queue: ~p, Num: ~p", [Queue, Number]),
     {ok, Connection} = connection_tracker:get_connection(ConnectionTracker),
